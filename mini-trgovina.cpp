@@ -10,6 +10,7 @@ int main()
     string artikli[MAX];
     unsigned long long int barkod[MAX];
     unsigned long long int barkod_pretraga;
+    string naziv;
     float cijena[MAX];
     ofstream datotekaUpisivanje;
     ifstream datotekaUcitavanje;
@@ -71,6 +72,25 @@ int main()
         }
         else if( izbor == 4 )
         {
+           cout << "upisite naziv";
+           cin.ignore();
+            getline(cin, naziv);
+            bool pronadjen = false;
+            for( int i=0; i < brojArtikla; i++)
+            {
+                if(naziv == artikli[i])
+                {
+                    cout << artikli[i] << "\t";
+                cout << barkod[i] << "\t";
+                cout << cijena[i] << "\t";
+                    pronadjen =true;
+                break;
+                }
+                if(pronadjen == false)
+                {
+                    cout << "nema artikla";
+                }
+            }
         }
         else if( izbor == 5 )
         {
