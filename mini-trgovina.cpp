@@ -64,6 +64,23 @@ int main()
         }
         else if( izbor == 4 )
         {
+            string naziv_pretraga;
+            cout<<"Unesite naziv koji trazite";
+            cin.ignore();
+            getline(cin, naziv_pretraga);
+            bool pronadjen = false;
+            for(int i = 0; i< brojArtikla; i++)
+            {
+                if(naziv_pretraga == artikli[i])
+                {
+                    cout<< artikli[i] <<"\t";
+                    cout<<"Cijena"<<cijena[i]<<"\t";
+                    cout<<"Bar kod:"<<barkod[i]<<endl;
+                    pronadjen= true;
+                    break;
+                }
+            }
+
         }
         else if( izbor == 5 )
         {
