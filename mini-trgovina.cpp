@@ -27,13 +27,18 @@ int main()
         cin >> izbor;
         if( izbor == 1 )
         {
-            cout << "Unesite bar kod artikla: ";
-            cin>>barkod[brojArtikla];
-            cout<<"Unesite naziv artikla: ";
+            cout<< "unesite bar kod artikla: ";
+            cin >> barkod[brojArtikla];
+            cout << "Unesite naziv artikla: ";
             cin.ignore();
-            getline(cin,artikli[brojArtikla]);
-            cout<<"Unesite cijena artikla: ";
-            cin>>cijena[brojArtikla];
+            getline(cin, artikli[brojArtikla]);
+            cout << "Unesite cijenu artikla: ";
+            cin >> cijena[brojArtikla];
+            datotekaUpisivanje.open("artikli.txt", ios::app);
+            datotekaUpisivanje << barkod[brojArtikla]<<endl;
+            datotekaUpisivanje << artikli[brojArtikla] << endl;
+            datotekaUpisivanje << cijena[brojArtikla] << endl;
+
             brojArtikla++;
         }
         else if( izbor == 2 )
@@ -41,49 +46,64 @@ int main()
             cout << "bar kod" << "\t" << "naziv artikla" << "\t" << "cijena" << endl;
             for( int i = 0; i < brojArtikla; i++ )
             {
-                cout << barkod[i]<<"\t"<<artikli[i]<<"\t"<<cijena[i]<<endl;
+                cout << barkod[i]<<"\t"<< artikli[i]<<"\t" << cijena[i]<< endl;
             }
+
         }
         else if( izbor == 3 )
         {
             unsigned long long int barkod_pretraga;
-            cout<<"Unesite barkod koji trazite";
+            cout<<"Upisite bar kod po kojem zelite naci artikl ";
             cin>> barkod_pretraga;
-            bool pronadjen = false;
-            for(int i = 0; i< brojArtikla; i++)
+            bool pronadjen=false;
+            for(int i=0; i<brojArtikla;i++)
             {
-                if(barkod_pretraga == barkod[i])
+                if(barkod_pretraga==barkod[i])
                 {
-                    cout<< artikli[i] <<"\t";
-                    cout<<"Cijena"<<cijena[i]<<"\t";
-                    cout<<"Bar kod:"<<barkod[i]<<endl;
-                    pronadjen= true;
+                    cout << barkod[i]<<"\t"<< artikli[i]<<"\t" << cijena[i]<< endl;
+                    pronadjen = true;
                     break;
                 }
+            }
+            if(pronadjen==false)
+            {
+                cout<<"Artikl nije pronaðen" << endl;
             }
         }
         else if( izbor == 4 )
         {
-            string naziv_pretraga;
-            cout<<"Unesite naziv koji trazite";
+            string  artikl_pretraga;
+            cout << "upisite artikl po kojem zelite saznati podatke: ";
             cin.ignore();
-            getline(cin, naziv_pretraga);
-            bool pronadjen = false;
-            for(int i = 0; i< brojArtikla; i++)
+            getline(cin, artikl_pretraga);
+            bool pronadjen=false;
+            for (int i=0 ; i<brojArtikla; i++)
             {
-                if(naziv_pretraga == artikli[i])
+                if(artikl_pretraga == artikli[i])
                 {
-                    cout<< artikli[i] <<"\t";
-                    cout<<"Cijena"<<cijena[i]<<"\t";
-                    cout<<"Bar kod:"<<barkod[i]<<endl;
-                    pronadjen= true;
+                    pronadjen=true;
+                    cout << barkod[i]<<"\t"<< artikli[i]<<"\t" << cijena[i]<< endl;
                     break;
                 }
             }
-
-        }
+            if(pronadjen==false)
+            {
+                cout<<"artikl nije pronaðen"<<endl;
+            }
+            }
         else if( izbor == 5 )
         {
+           unsigned long long int barkod_pretraga;
+            cout<<"Upisite bar kod po kojem zelite naci artikl ";
+            cin>> barkod_pretraga;
+            bool pronadjen=false;
+            for(int i=0; i<brojArtikla;i++)
+            {
+                if(barkod_pretraga==barkod[i])
+                    cout<<"Unesite novu cijenu: "<<endl;
+                cin>> cijena [i];
+                break;
+            }
         }
         else if( izbor == 6 )
         {
