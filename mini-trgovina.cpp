@@ -36,13 +36,15 @@ int main()
             getline(cin, artikli[brojArtikla]);
             cout << "unesite cjenu artikla";
             cin >> cijena[brojArtikla];
-            brojArtikla++;
+
 
             datotekaUpisivanje.open("artikli.txt", ios::app);
             datotekaUpisivanje <<barkod [brojArtikla] << endl;
             datotekaUpisivanje <<artikli[brojArtikla] << endl;
-            datotekaUpisivanje <<  cijena[brojArtikla] << endl;
+            datotekaUpisivanje << cijena[brojArtikla] << endl;
             datotekaUpisivanje.close();
+
+            brojArtikla++;
         }
         else if( izbor == 2 )
         {
