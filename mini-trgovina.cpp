@@ -122,16 +122,12 @@ datotekaUcitavanje.close();
             {
                 if(barkod_pretraga == barkod[i])
                 {
-                    cout << artikli[i] << "\t";
-                cout << barkod[i] << "\t";
-                cout << cijena[i] << "\t";
-                    pronadjen =true;
+                    cout << "unesite novu cjenu";
+                    cin >> cijena[i];
+
                 break;
                 }
-                if(pronadjen == false)
-                {
-                    cout << "unjeli ste krivi barkod";
-                }
+
             }
         }
         else if( izbor == 6 )
