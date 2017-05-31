@@ -50,7 +50,24 @@ int main()
         }
         else if( izbor == 3 )
         {
-            unsigned
+            cout << "upisite barkod";
+            cin >> barkod_pretraga;
+            bool pronadjen = false;
+            for( int i=0; i < brojArtikla; i++)
+            {
+                if(barkod_pretraga == barkod[i])
+                {
+                    cout << artikli[i] << "\t";
+                cout << barkod[i] << "\t";
+                cout << cijena[i] << "\t";
+                    pronadjen =true;
+                break;
+                }
+                if(pronadjen == false)
+                {
+                    cout << "unjeli ste krivi barkod";
+                }
+            }
         }
         else if( izbor == 4 )
         {
